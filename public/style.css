@@ -1,0 +1,13 @@
+body{
+
+}
+.calculator{
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 600px;
+}
+
+.view{
+    height: 30px;
+    background-color: gray;
+}
