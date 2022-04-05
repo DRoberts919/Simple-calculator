@@ -14,6 +14,28 @@ const add = document.getElementById("add").addEventListener("click", (evt) => {
   operation("+");
 });
 
+const sub = document.getElementById("sub").addEventListener("click", (evt) => {
+  operation("-");
+});
+
+const mult = document
+  .getElementById("mult")
+  .addEventListener("click", (evt) => {
+    operation("X");
+  });
+
+const divide = document
+  .getElementById("divide")
+  .addEventListener("click", (evt) => {
+    operation("/");
+  });
+
+const equalsBtn = document
+  .getElementById("equals")
+  .addEventListener("click", (evt) => {
+    calculate();
+  });
+
 //all numbers
 const one = document.getElementById("one").addEventListener("click", (evt) => {
   appendNumber(evt.target.innerHTML);
@@ -66,6 +88,7 @@ const calculator = {
   firstOperation: null,
   secondOperation: null,
   operator: null,
+  calculated: false,
 };
 
 // all button operationsz
@@ -74,6 +97,7 @@ const clear = () => {
   calculator.firstOperation = null;
   calculator.secondOperation = null;
   calculator.operator = null;
+  calculator.calculated = false;
   setDisplay();
 };
 
@@ -103,13 +127,53 @@ const appendNumber = (number) => {
 
 const operation = (operation) => {
   console.log(operation);
+  calculator.operator = operation;
+  setDisplay();
 };
 
-const calculate = () => {};
+const calculate = () => {
+  let numOne = parseInt(calculator.firstOperation);
+  let numTwo = parseInt(calculator.secondOperation);
+  let answer = 0;
+
+  calculator.calculated = true;
+
+  switch (calculator.operator) {
+    case "+":
+      answer = numOne + numTwo;
+      calculator.view = answer.toString();
+      setDisplay();
+
+      break;
+    case "-":
+      answer = numOne - numTwo;
+      console.log(answer);
+      calculator.view = answer.toString();
+      console.log(calculator.view);
+      setDisplay();
+      break;
+    case "X":
+      answer = numOne * numTwo;
+      calculator.view = answer.toString();
+      setDisplay();
+      break;
+    case "/":
+      answer = numOne / numTwo;
+      calculator.view = answer.toString();
+      setDisplay();
+      break;
+
+    default:
+      break;
+  }
+};
 
 const setDisplay = () => {
-  calculator.view = `${calculator.firstOperation} ${calculator.operator} ${calculator.secondOperation}`;
-  view.innerHTML = calculator.view;
+  if (calculator.calculated == false) {
+    calculator.view = `${calculator.firstOperation} ${calculator.operator} ${calculator.secondOperation}`;
+    view.innerHTML = calculator.view;
+  } else {
+    console.log(calculator.view);
+    view.innerHTML = calculator.view;
+  }
 };
-
-setDisplay();

@@ -1,0 +1,22 @@
+{
+  "name": "simple-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DRoberts919/Simple-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DRoberts919/Simple-calculator/issues"
+  },
+  "homepage": "https://github.com/DRoberts919/Simple-calculator#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
