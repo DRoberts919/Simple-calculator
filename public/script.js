@@ -83,6 +83,10 @@ const zero = document
     appendNumber(evt.target.innerHTML);
   });
 
+const dot = document.getElementById("dot").addEventListener("click", (evt) => {
+  appendNumber(evt.target.innerHTML);
+});
+
 const calculator = {
   view: "0",
   firstOperation: null,
@@ -132,8 +136,8 @@ const operation = (operation) => {
 };
 
 const calculate = () => {
-  let numOne = parseInt(calculator.firstOperation);
-  let numTwo = parseInt(calculator.secondOperation);
+  let numOne = parseFloat(calculator.firstOperation);
+  let numTwo = parseFloat(calculator.secondOperation);
   let answer = 0;
 
   calculator.calculated = true;
